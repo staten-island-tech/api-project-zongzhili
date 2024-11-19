@@ -12,7 +12,17 @@ async function getData() {
       console.log(data);
       //this is unique to THIS API
       data.akatsuki.forEach((akatsuki) => console.log(akatsuki.name));
-      //document.querySelector("div").insertAdjacentHTML("afterbegin", `<h1>${agent.displayName}</h1>)
+
+      const container = document.getElementById("container");
+
+      // akatsuki.forEach((characters) => {
+      //   container.adjacentHTML(
+      //     "afterbegin",
+      //     `<div>
+      //     <h1>${characters.name}</h1>
+      //     </div>`
+      //   );
+      // });
     }
   } catch (error) {
     alert("hey i could not find that akatsuki");
@@ -20,6 +30,3 @@ async function getData() {
 }
 
 getData();
-
-const container = document.querySelector("container");
-akatsuki.forEach((characters) => Container.adjacentHTML);
