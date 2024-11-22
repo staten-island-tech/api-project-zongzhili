@@ -17,14 +17,14 @@ async function getData() {
 
       const container = document.getElementById("container");
 
-      // data.forEach((data) => {
-      //   container.adjacentHTML(
-      //     "afterbegin",
-      //     `<div>
-      //     <h1>${data.name}</h1>
-      //     </div>`
-      //   );aaa
-      // });
+      data.data.forEach((data) => {
+        container.insertAdjacentHTML(
+          "beforeend",
+          `<div>
+          <h1>${data.name}, ${data.type}</h1>
+          </div>`
+        );
+      });
     }
   } catch (error) {
     alert("hey i could not find that character");
