@@ -1,4 +1,4 @@
-import "./style.css";
+import "/CSS/style.css";
 
 async function getData() {
   //returns a promise
@@ -17,11 +17,16 @@ async function getData() {
 
       const container = document.getElementById("container");
 
-      data.data.forEach((data) => {
+      const spellCards = data.data.filter(
+        (spell) => spell.type === "Trap Card"
+      );
+
+      spellCards.forEach((data) => {
         container.insertAdjacentHTML(
           "beforeend",
-          `<div>
-          <h1>${data.name}, ${data.type}</h1>
+          `<div id = "container">
+          <img src ="${data.image_url}" alt="">
+          <h1>${data.name}</h1>
           </div>`
         );
       });
