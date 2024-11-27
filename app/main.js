@@ -18,9 +18,10 @@ async function getData() {
       data.results.forEach((character) => {
         container.insertAdjacentHTML(
           "beforeend",
-          `<div id = "container">
-          <img src ="${character.image}" alt="">
-          <h1>${character.name} ${character.status}</h1>
+          `<div id="cards" class="rounded-[5px] mx-auto border-2 border-black w-[24%] h-[375px] mt-[15px] mb-[15px] text-center text-black">
+          <img src ="${character.image}" class="mx-auto mt-5" alt="">
+          <h1>${character.name}</h1>
+          <h2>Status: ${character.status}</h2>
           </div>`
         );
       });
