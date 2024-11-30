@@ -18,10 +18,10 @@ async function getData() {
       data.results.forEach((character) => {
         container.insertAdjacentHTML(
           "beforeend",
-          `<div id="cards" class="rounded-[5px] mx-auto border-2 border-black w-[24%] h-[375px] mt-[15px] mb-[15px] text-center text-black">
+          `<div id="cards" class="rounded-[5px] mx-auto border-2 border-black w-[24%] h-[400px] mt-[15px] mb-[15px] text-center text-black">
           <img src ="${character.image}" class="mx-auto mt-5" alt="">
-          <h1>${character.name}</h1>
-          <h2>Status: ${character.status}</h2>
+          <h1>${character.name} (${character.gender} ${character.species})</h1>
+          <h2>Status: ${character.status} on ${character.location.name}<br> Origins: ${character.origin.name}</h2>
           </div>`
         );
       });
@@ -32,3 +32,26 @@ async function getData() {
 }
 
 getData();
+
+// async function searchCharacter() {
+//   const searchQuery = document.getElementById("search-input").value.trim();
+//   if (!searchQuery) return alert("Please enter a character name to search.");
+
+//   const searchUrl = `https://rickandmortyapi.com/api/character/?name=${searchQuery}`; // Modify the URL to include query params
+
+//   getData(searchUrl); // Make the API call with the search query
+// }
+
+// // Event listener for the search button
+// document
+//   .getElementById("search-button")
+//   .addEventListener("click", searchCharacter);
+
+// // Event listener for the Enter key to trigger the search
+// document
+//   .getElementById("search-input")
+//   .addEventListener("keypress", function (event) {
+//     if (event.key === "Enter") {
+//       searchCharacter();
+//     }
+//   });
