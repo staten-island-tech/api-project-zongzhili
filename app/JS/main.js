@@ -1,8 +1,9 @@
 import "../CSS/style.css";
 
 async function getData(url = "https://rickandmortyapi.com/api/character") {
+  //returns a promise
   try {
-    const response = await fetch(url);
+    const response = await fetch(url); //guard clause
 
     if (response.status !== 200) {
       throw new Error(`Request failed with status ${response.status}`);
@@ -10,9 +11,9 @@ async function getData(url = "https://rickandmortyapi.com/api/character") {
 
     const data = await response.json();
     console.log(data.results);
-
+    //this is unique to THIS API
     const container = document.getElementById("container");
-    container.innerHTML = "";
+    container.innerHTML = ""; //clear
 
     data.results.forEach((character) => {
       container.insertAdjacentHTML(
@@ -25,7 +26,7 @@ async function getData(url = "https://rickandmortyapi.com/api/character") {
       );
     });
   } catch (error) {
-    if (error.message.includes("404")) {
+    if (error.message) {
       alert("Character not found! Please try another name.");
     } else {
       alert("An error occurred. Please try again.");
