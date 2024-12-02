@@ -1,8 +1,8 @@
 import "../CSS/style.css";
 
-async function getData() {
+async function getData(url = "https://rickandmortyapi.com/api/character") {
   try {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
+    const response = await fetch(url);
 
     if (response.status !== 200) {
       throw new Error(`Request failed with status ${response.status}`);
