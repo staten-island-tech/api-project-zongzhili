@@ -6,7 +6,7 @@ async function getData(url = "https://rickandmortyapi.com/api/character") {
     const response = await fetch(url); //guard clause
 
     if (response.status !== 200) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`);
+      throw new Error(response);
     }
     const data = await response.json();
     console.log(data.results);
@@ -17,7 +17,7 @@ async function getData(url = "https://rickandmortyapi.com/api/character") {
     data.results.forEach((character) => {
       container.insertAdjacentHTML(
         "beforeend",
-        `<div class="cards rounded-[5px] mx-auto border-2 border-black w-[24%] h-[400px] mt-[15px] mb-[15px] text-center text-black">
+        `<div class="cards rounded-[5px] mx-auto border-2 border-black w-[24%] h-[400px] mt-[15px] mb-[15px] text-center text-black bg-white hover:scale-105 transition-transform duration-300">
           <img src ="${character.image}" class="mx-auto mt-[20px]" alt="">
           <h1>${character.name} (${character.gender} ${character.species})</h1>
           <h2>Status: ${character.status} on ${character.location.name}<br> Origins: ${character.origin.name}</h2>
@@ -29,6 +29,7 @@ async function getData(url = "https://rickandmortyapi.com/api/character") {
     alert("An error occurred. Please try again.");
   }
 }
+getData();
 
 async function searchCharacter() {
   const searchQuery = document.getElementById("search-input").value;
@@ -41,5 +42,3 @@ async function searchCharacter() {
 document
   .getElementById("search-button")
   .addEventListener("click", searchCharacter);
-
-getData();
